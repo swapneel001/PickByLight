@@ -38,7 +38,7 @@ $ cd ~/catkin_ws && catkin_make
 #### niryo_one_ros
 ```shell
 $ git clone https://github.com/zakimohzani/niryo_one_ros
-$ git checkout FinalCameraLightsIntegration
+$ git checkout CameraLightsIntegration
 ```
 
 ---

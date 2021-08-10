@@ -119,7 +119,7 @@ void hmiCtrl::filterbyX(vecWaste &frames) {
     double width = frame.boundingBox[2];
     int lower_idx = (x - width / 2) < lower_x_
                         ? 0
-                        : ((x - width / 2 - lower_x_) / diode_coverage_);
+                        : ((x - width / 2 - lower_x_) / diode_coverage_) + 1;
     int upper_idx = (x + width / 2) < lower_x_
                         ? 0
                         : ((x + width / 2 - lower_x_) / diode_coverage_);
@@ -132,10 +132,11 @@ void hmiCtrl::filterbyX(vecWaste &frames) {
 }
 
 void hmiCtrl::filterbyType(vecWaste &frames) {
+  // The below number is the plasticType to ignore
   for (auto &frame : frames) {
     if (ignoredObjects_ & (1 << (frame.obj_num % (__SIZEOF_LONG_LONG__ * 8))))
-      continue;
-    if (frame.plastictype == 1)
+      continue; 
+    if (frame.plastictype == 1) //Only change << this number if need to change to HDPE or whatever
       ignoredObjects_ |= (1 << (frame.obj_num % (__SIZEOF_LONG_LONG__ * 8)));
   }
 }

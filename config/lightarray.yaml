@@ -1,8 +1,8 @@
 ---
-  x_pos: 0.50
+  x_pos: 0.475 # in meters
   y_pos: -0.20
   z_pos: 0.37
-  roll: -45
+  roll: -47
   # roll: 45
 
   frame_id: light_array
